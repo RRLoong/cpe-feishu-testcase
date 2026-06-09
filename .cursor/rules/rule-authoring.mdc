@@ -1,0 +1,28 @@
+---
+description: 编辑 .cursor/rules 下 mdc 规则时的格式要求
+globs: ".cursor/rules/**/*.mdc"
+alwaysApply: false
+---
+
+# Rule 编写规范
+
+## Frontmatter
+
+- 必填：`description`。
+- 二选一：`alwaysApply: true` **或** `globs` + `alwaysApply: false`。
+
+## 正文
+
+- 单主题，目标 <50 行。
+- 必须包含至少一组 **❌ BAD / ✅ GOOD** 对照（Markdown 或代码块均可）。
+
+## CPE 测试规则主题参考
+
+- 用例 ID 与标题格式（`TC-CPE-<模块>-<序号>`）
+- 缺陷单必填字段（版本、拓扑、日志列表）
+- 自动化：等待 DUT 就绪、失败时采集日志、禁止硬编码生产密码
+- 脱敏：提交前检查日志与配置片段
+
+## 禁止
+
+- 在一个 mdc 中混合「用例格式 + Python 编码规范 + Git 提交规范」等多主题。

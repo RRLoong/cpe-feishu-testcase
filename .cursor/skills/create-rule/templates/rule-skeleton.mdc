@@ -1,0 +1,26 @@
+---
+description: REPLACE one-line summary for rule picker
+globs: "**/testcases/**/*.md"
+alwaysApply: false
+---
+
+# REPLACE: Rule Title
+
+## 适用范围
+
+简述本规则管什么文件 / 什么活动。
+
+## 要求
+
+- 必须：…
+- 禁止：…
+
+## 示例
+
+```markdown
+<!-- ❌ BAD -->
+用例标题：测一下上网
+
+<!-- ✅ GOOD -->
+【TC-CPE-NET-001】WAN 侧 PPPoE 拨号成功且 DNS 解析正常
+```

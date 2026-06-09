@@ -1,0 +1,31 @@
+---
+description: CPE skills 仓库核心约定（语言、命名、安全）
+alwaysApply: true
+---
+
+# CPE Skills 仓库核心约定
+
+## 沟通与文档
+
+- 与用户交流使用简体中文。
+- Skill 的 YAML `description` 使用英文第三人称，并包含明确触发词。
+
+## 命名
+
+- 领域 Skill：`cpe-<场景>`（如 `cpe-defect-triage`）。
+- Rule 文件：`<topic>-<aspect>.mdc`，小写连字符。
+
+## 安全与合规
+
+- 禁止在 Skill、Rule、模板中写入：真实密码、密钥、未脱敏 SN、客户专网 IP、完整抓包路径。
+- 使用占位符：`DUT_SN`、`WAN_IP`、`ADMIN_PASS`（示例中标注「测试环境专用」）。
+
+## 仓库边界
+
+- 仅向 `.cursor/skills/` 与 `.cursor/rules/` 添加团队资产。
+- 禁止修改或复制内容到 `~/.cursor/skills-cursor/`。
+
+## Skill vs Rule
+
+- **Skill**：多步骤工作流、模板、可选脚本。
+- **Rule**：短约束、格式、禁忌；单文件尽量 <50 行。

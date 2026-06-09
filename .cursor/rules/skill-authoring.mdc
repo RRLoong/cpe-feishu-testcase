@@ -1,0 +1,34 @@
+---
+description: 编辑 Agent Skill（SKILL.md）时的结构与质量要求
+globs: "**/.cursor/skills/**/SKILL.md"
+alwaysApply: false
+---
+
+# Skill 编写规范
+
+## Frontmatter
+
+- 必填：`name`（小写连字符）、`description`（英文第三人称 + WHEN 触发词）。
+- 默认：`disable-model-invocation: true`。
+
+## 正文
+
+- 主文件 `SKILL.md` <500 行；详细协议表放 `reference.md`。
+- 从 `SKILL.md` 只链接一层子文件（`reference.md`、`examples.md`）。
+- 领域 Skill 须含：**Prerequisites**、**Workflow**（可勾选清单）、**Output template**；涉及排障时加 **Log capture**。
+
+## description 示例
+
+```yaml
+# ✅ GOOD
+description: >-
+  Triages CPE defects with env, repro steps, and log checklist. Use when filing
+  bugs, reproducing failures, or analyzing router/ONT test failures.
+
+# ❌ BAD
+description: Helps with testing.
+```
+
+## 禁止
+
+- 冗长的通用技术科普、Windows 路径、多套并列工具链且无默认项。
