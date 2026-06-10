@@ -13,7 +13,6 @@
 
 主 Skill 路径：`.cursor/skills/cpe-feishu-testcase/`（详见该目录 [README.md](.cursor/skills/cpe-feishu-testcase/README.md)）
 
-## 分发给同事
 
 | 方式 | 操作 |
 |------|------|
