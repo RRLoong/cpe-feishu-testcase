@@ -8,7 +8,7 @@
 2. 对话：`@cpe-feishu-testcase` + 需求（生成须含「生成/编写」）
 
 ```text
-@cpe-feishu-testcase 生成 10 条 WIFI 用例，型号 SR7D4VA，自动判级
+@cpe-feishu-testcase 生成 10 条 WIFI 用例，型号 SR7D4VA，项目标签 LLA，自动判级，飞书导入 CSV
 ```
 
 主 Skill 路径：`.cursor/skills/cpe-feishu-testcase/`（详见该目录 [README.md](.cursor/skills/cpe-feishu-testcase/README.md)）
