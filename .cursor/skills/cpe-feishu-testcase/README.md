@@ -60,6 +60,16 @@ CPE 飞书用例 Skill：**P0–P3 自动判级** + **飞书导入 CSV/XLSX**（
 | [examples.md](examples.md) | 提示词与 CSV 样例 |
 | [feishu-import-template.xlsx](feishu-import-template.xlsx) | 飞书导入表头（20 列，无废弃字段） |
 
+## 相关 Skill
+
+生成后若需**评审用例内容与策略符合性**（非命名格式），使用独立 Skill：
+
+```text
+@cpe-testcase-review 评审下面用例的内容质量和 P0-P3，只出问题清单和打分：
+```
+
+仓库路径示例：`skills/cpe-testcase-review/`（与本包分开分发；内含 `test-strategy.md` 副本）。
+
 ## 说明
 
 - 必须 `@cpe-feishu-testcase`（不会自动加载）
