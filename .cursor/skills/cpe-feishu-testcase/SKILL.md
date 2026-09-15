@@ -14,7 +14,8 @@ disable-model-invocation: true
 
 | 文档 | 内容 |
 |------|------|
-| [reference.md](reference.md) | 8 字段、飞书 20 列映射、步骤/预期写法 |
+| [reference.md](reference.md) | 8 字段、飞书 20 列映射、步骤/预期写法（含标题格式 §2） |
+| [cpe-mf-tree.md](cpe-mf-tree.md) | CPE 用例目录 M/F 树（标题占号） |
 | [test-strategy.md](test-strategy.md) | P0–P3、模块矩阵、判级流程（判级唯一依据） |
 | [Router_Pon_测试范围模版.md](Router_Pon_测试范围模版.md) | 测试范围模版（Numbers 同步源；非运行时判级入口） |
 | [examples.md](examples.md) | 提示词与 CSV 样例 |
@@ -62,7 +63,7 @@ disable-model-invocation: true
 ```markdown
 ### 1. 关联项目
 ### 2. 用例名称/标题
-【<型号>】【<项目>】【<模块>】<功能描述>；
+【Mxxx-Fxxx-Cxxx】【<模块标签>】【P0|P1|P2|P3】【auto|manual】<功能描述>
 
 ### 3. 用例类型
 功能测试
@@ -77,6 +78,8 @@ LLA,WIFI
 ### 7. 测试步骤
 ### 8. 预期结果
 ```
+
+标题段含义与占号规则见 [reference.md §2](reference.md#2-用例名称标题)；`M`/`F` 目录见 [cpe-mf-tree.md](cpe-mf-tree.md)。
 
 ## 安全
 
