@@ -1,6 +1,11 @@
 # 飞书用例示例（脱敏）
 
-## 示例 1：WAN PPPoE（通用）
+标题格式见 [reference.md §2](reference.md#2-用例名称标题)；`M`/`F` 见 [cpe-mf-tree.md](cpe-mf-tree.md)。  
+**【客户定制型号】** 可选：未指定型号则省略该段；项目标签写字段 5，DUT 明细写前置条件。
+
+## 示例 1：WAN PPPoE（通用，无型号段）
+
+归属：`M002-网络&协议` / `F005-PPPoE`。
 
 ```markdown
 ## 用例
@@ -9,7 +14,7 @@
 TBD_FEISHU_PROJECT
 
 ### 2. 用例名称/标题
-【EVO6022GP3】【LLA】【WAN】PPPoE 首次拨号成功_实网上联；
+【M002-F005-C001】【PPPoE】【P0】【manual】PPPoE首次拨号成功且实网上联
 
 ### 3. 用例类型
 功能测试
@@ -18,7 +23,7 @@ TBD_FEISHU_PROJECT
 P0
 
 ### 5. 标签
-LLA,WAN
+LLA,PPPoE
 
 ### 6. 前置条件
 - DUT：EVO6022GP3，软件版本 TBD（测试环境）
@@ -39,17 +44,17 @@ LLA,WAN
 
 ## 示例 2：标题 ❌ / ✅
 
+|     | 标题 |
+| --- | --- |
+| ❌   | ACS 改 WAN |
+| ❌   | 【LLA】改拨号 |
+| ❌   | 【EVO6022GP3】【LLA】【ACS】通过ACS改WAN拨号； |
+| ✅   | 【M001-F001-C060】【WiFi】【P0】【auto】不同WiFi协议（2.4G和5G）下的网络连通性 |
+| ✅   | 【M010-F004-C001】【TR069】【EVO6022GP3】【P0】【auto】通过ACS将Internet WAN由默认PPPoE修改为IPoE |
 
-|     | 标题                                                                            |
-| --- | ----------------------------------------------------------------------------- |
-| ❌   | ACS 改 WAN                                                                     |
-| ❌   | 【LLA】改拨号                                                                      |
-| ✅   | 【EVO6022GP3】【LLA】【ACS】支持通过acs节点，将internet wan由默认pppoe拨号方式修改成ipoe，也支持修改回pppoe； |
-| ✅   | 【EVO6022GP3】【LLA】【ACS】通过ACS节点将Internet WAN由默认PPPoE修改为IPoE；                    |
+## 示例 3：ACS WAN PPPoE ↔ IPoE（客户定制型号段）
 
-
-## 示例 3：EVO6022GP3 ACS WAN PPPoE ↔ IPoE
-
+归属：`M010-TR069` / `F004-配置下发`。需求点名 **EVO6022GP3** 时插入型号段。  
 基于团队标题的**可执行** 8 字段示例（节点路径为占位，导入飞书前替换为正式 TR-069 路径）。
 
 ```markdown
@@ -59,7 +64,7 @@ LLA,WAN
 TBD_FEISHU_PROJECT
 
 ### 2. 用例名称/标题
-【EVO6022GP3】【LLA】【ACS】支持通过acs节点，将internet wan由默认pppoe拨号方式修改成ipoe，也支持修改回pppoe；
+【M010-F004-C001】【TR069】【EVO6022GP3】【P0】【auto】通过ACS将Internet WAN在PPPoE与IPoE间切换并可改回
 
 ### 3. 用例类型
 功能测试
@@ -68,7 +73,7 @@ TBD_FEISHU_PROJECT
 P0
 
 ### 5. 标签
-LLA,ACS
+LLA,TR069
 
 ### 6. 前置条件
 - DUT：EVO6022GP3，软件版本 TBD（测试环境）
@@ -110,15 +115,18 @@ LLA,ACS
 
 ### 示例 3b：拆分写法（推荐执行跟踪）
 
-同需求拆为两条时，标题与步骤仅保留单方向，分级/标签不变。第二条标题：
+同需求拆为两条时，标题与步骤仅保留单方向，分级/标签不变。
 
 ```text
-【EVO6022GP3】【LLA】【ACS】通过ACS节点将Internet WAN由IPoE修改回PPPoE；
+【M010-F004-C001】【TR069】【EVO6022GP3】【P0】【auto】通过ACS将Internet WAN由默认PPPoE修改为IPoE
+【M010-F004-C002】【TR069】【EVO6022GP3】【P0】【auto】通过ACS将Internet WAN由IPoE修改回PPPoE
 ```
 
-前置中初始状态第二条改为：**当前 Internet WAN 已为 IPoE 且可上网**。
+第二条前置初始状态改为：**当前 Internet WAN 已为 IPoE 且可上网**。
 
 ## 示例 4：批量生成 10 条 P0 WIFI
+
+归属：`M001-Wi-Fi` / `F001-Wi-Fi基本功能`（及同模块其它 F，按场景选）。
 
 ### 用户怎么说（复制即用）
 
@@ -129,17 +137,18 @@ LLA,ACS
 【关联项目】TBD_FEISHU_PROJECT
 【项目标签】LLA
 【类型】功能测试
+【标题】【Mxxx-Fxxx-Cxxx】【WiFi】【型号?】【P0】【auto|manual】…（型号可选，见 reference §2；占号对照 cpe-mf-tree）
 【WAN】已 PPPoE 拨号上网
 【WiFi 默认】双频开启，SSID/密码用占位符
 【范围】仅输出 test-strategy §4.2 WIFI 中判定为 P0 的用例（不足 10 条则说明）
 【输出】分级统计 + 矩阵 + 飞书导入 CSV（20 列，所属目录 CPE）
-【保存】testcases/sr7d4va/wifi/feishu-import-p0-10.csv
+【保存】testcases/evo6022gp3/wifi/feishu-import-p0-10.csv
 ```
 
 ### Agent 应交付的结构（节选）
 
 ```markdown
-# 用例集：SR7D4VA / WIFI / 目标P0 / 实际P0:6
+# 用例集：EVO6022GP3 / WIFI / 目标P0 / 实际P0:6
 
 ## 分级统计
 | 级别 | 条数 |
@@ -150,7 +159,7 @@ LLA,ACS
 ## 测试点矩阵
 | 序号 | 标题摘要 | 分级 | 分级依据 | 标签 | 用例类型 |
 |------|----------|------|----------|------|----------|
-| 1 | 2.4G 基本功能/关联 | P0 | P0 \| 策略:WEB-WIFI-基本功能 \| §4.2 | LLA,WIFI | 功能测试 |
+| 1 | 2.4G 基本功能/关联 | P0 | P0 \| 策略:WEB-WIFI-基本功能 \| §4.2 | LLA,WiFi | 功能测试 |
 
 ## 飞书导入 CSV
 （20 列表头，见 feishu-import-template.xlsx；已移除废弃列「执行步骤」「[废弃]预期结果」）
@@ -158,7 +167,7 @@ LLA,ACS
 
 ```csv
 用例名称,所属目录,标签,描述,优先级,用例类型,测试用例类型,工作项id,前置条件,关联需求（系统字段）,用例分级,步骤,预期结果,自增数字,子分类,关联用例集,流程版本,WBS状态,关联项目,关联需求
-【SR7D4VA】【LLA】【WIFI】2.4G 频段默认 SSID 与密码关联成功；,CPE,"LLA,WIFI","P0 | 策略:WEB-WIFI-基本功能 | §4.2",,功能测试,,,"- DUT：SR7D4VA，软件版本 TBD（测试环境）\n- 初始状态：恢复出厂",,P0,"1. 登录 Web WiFi 页\n2. 查看 2.4G SSID","1. 页面正常打开\n2. SSID 与默认配置一致",,,,,,TBD_FEISHU_PROJECT,
+【M001-F001-C001】【WiFi】【P0】【manual】2.4G频段默认SSID与密码关联成功,CPE,"LLA,WiFi","P0 | 策略:WEB-WIFI-基本功能 | §4.2",,功能测试,,,"- DUT：EVO6022GP3，软件版本 TBD（测试环境）\n- 初始状态：恢复出厂",,P0,"1. 登录 Web WiFi 页\n2. 查看 2.4G SSID","1. 页面正常打开\n2. SSID 与默认配置一致",,,,,,TBD_FEISHU_PROJECT,
 ```
 
 ### 自定义 10 条时
@@ -178,18 +187,19 @@ LLA,ACS
 ```text
 @cpe-feishu-testcase 生成 10 条 WIFI 功能用例：
 - 型号 EVO6022GP3，产品类型：光猫（运营商）
+- 标题按 reference §2：【M001-Fxxx-Cxxx】【WiFi】【型号?】【Px】【auto|manual】…（未指定型号则省略型号段）
 - 按本目录 test-strategy.md（源：Router_Pon 测试范围模版）自动判级
 - 输出分级统计 + 矩阵（含分级依据）+ 完整 8 字段
 ```
 
 预期：P0 约 5–6 条（2.4G/5G 默认、双频合一、WPA2、WiFi 上网）；P1 约 4–5 条（隐藏 SSID、WiFi Web、改密、重启）。
 
-## 示例 6：ACS 用例定级（Mandatory P0）
+## 示例 6：TR069 用例定级（Mandatory P0）
 
 标题：
 
 ```text
-【EVO6022GP3】【LLA】【ACS】支持通过acs节点，将internet wan由默认pppoe拨号方式修改成ipoe，也支持修改回pppoe；
+【M010-F004-C001】【TR069】【EVO6022GP3】【P0】【auto】通过ACS将Internet WAN由默认PPPoE修改为IPoE
 ```
 
 字段 4 与依据：
@@ -207,6 +217,7 @@ P0
 
 ```text
 @cpe-feishu-testcase 生成 10 条 WIFI 用例，型号 SR7D4VA，项目标签 LLA，自动判级，飞书导入 CSV，关联项目 TBD_FEISHU_PROJECT
+（标题用【M001-Fxxx-Cxxx】【WiFi】【型号?】【Px】【auto|manual】；未点名型号则不要型号段）
 ```
 
 ### Agent 交付顺序
@@ -217,20 +228,18 @@ P0
 
 ### 固定规则
 
-
 | 项       | 值                                  |
 | ------- | ---------------------------------- |
-| 所属目录    | `CPE`                              |
+| 所属目录    | `CPE`（或按团队约定写到 `CPE/Mxxx/Fxxx`） |
+| 用例名称    | reference §2 标题格式                  |
 | 用例类型    | `功能测试` 或 `兼容性测试`                   |
 | 步骤 / 预期 | 填 **步骤**、**预期结果** 列                |
 | 分级依据    | 填 **描述** 列                         |
 | 留空      | 优先级、测试用例类型、工作项id 等（见 reference §9） |
 | 已移除     | 执行步骤、[废弃]预期结果（勿输出）                 |
 
-
 ### 导入飞书
 
 1. 复制 CSV 存为 `.csv`（UTF-8 BOM），或粘贴进 [feishu-import-template.xlsx](feishu-import-template.xlsx) 第 2 行起另存 `.xlsx`
 2. 飞书项目 → 用例 → **导入** → 上传文件
 3. **先导入 1 条**验证格式
-

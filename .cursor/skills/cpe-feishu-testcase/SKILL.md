@@ -63,7 +63,7 @@ disable-model-invocation: true
 ```markdown
 ### 1. 关联项目
 ### 2. 用例名称/标题
-【Mxxx-Fxxx-Cxxx】【<模块标签>】【P0|P1|P2|P3】【auto|manual】<功能描述>
+【Mxxx-Fxxx-Cxxx】【<模块标签>】【<客户定制型号?>】【P0|P1|P2|P3】【auto|manual】<功能描述>
 
 ### 3. 用例类型
 功能测试
@@ -79,7 +79,8 @@ LLA,WIFI
 ### 8. 预期结果
 ```
 
-标题段含义与占号规则见 [reference.md §2](reference.md#2-用例名称标题)；`M`/`F` 目录见 [cpe-mf-tree.md](cpe-mf-tree.md)。
+标题段含义与占号规则见 [reference.md §2](reference.md#2-用例名称标题)；`M`/`F` 目录见 [cpe-mf-tree.md](cpe-mf-tree.md)。  
+**【客户定制型号】** 可选：未指定型号则整段省略。
 
 ## 安全
 
