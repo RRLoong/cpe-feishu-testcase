@@ -56,7 +56,8 @@ CPE 飞书用例 Skill：**P0–P3 自动判级** + **飞书导入 CSV/XLSX**（
 |------|------|
 | [SKILL.md](SKILL.md) | Agent 流程 |
 | [reference.md](reference.md) | 8 字段 + 飞书 20 列映射 |
-| [test-strategy.md](test-strategy.md) | P0–P3 与模块矩阵 |
+| [test-strategy.md](test-strategy.md) | P0–P3 与模块矩阵（判级依据） |
+| [Router_Pon_测试范围模版.md](Router_Pon_测试范围模版.md) | 测试范围模版（Numbers 同步源） |
 | [examples.md](examples.md) | 提示词与 CSV 样例 |
 | [feishu-import-template.xlsx](feishu-import-template.xlsx) | 飞书导入表头（20 列，无废弃字段） |
 
@@ -73,5 +74,5 @@ CPE 飞书用例 Skill：**P0–P3 自动判级** + **飞书导入 CSV/XLSX**（
 ## 说明
 
 - 必须 `@cpe-feishu-testcase`（不会自动加载）
-- 判级默认按 SR7D4VA 测试策略（[test-strategy.md](test-strategy.md) §4）
+- 判级按本目录 [test-strategy.md](test-strategy.md) §4（源：Router_Pon 测试范围模版）
 - 勿提交真实密码、SN、内网 IP；使用占位符

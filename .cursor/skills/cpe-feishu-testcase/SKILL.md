@@ -15,7 +15,8 @@ disable-model-invocation: true
 | 文档 | 内容 |
 |------|------|
 | [reference.md](reference.md) | 8 字段、飞书 20 列映射、步骤/预期写法 |
-| [test-strategy.md](test-strategy.md) | P0–P3、模块矩阵、判级流程 |
+| [test-strategy.md](test-strategy.md) | P0–P3、模块矩阵、判级流程（判级唯一依据） |
+| [Router_Pon_测试范围模版.md](Router_Pon_测试范围模版.md) | 测试范围模版（Numbers 同步源；非运行时判级入口） |
 | [examples.md](examples.md) | 提示词与 CSV 样例 |
 | [feishu-import-template.xlsx](feishu-import-template.xlsx) | 飞书导入表头（20 列，已移除废弃列） |
 
@@ -30,7 +31,8 @@ disable-model-invocation: true
 ## 生成流程
 
 1. 读 [reference.md](reference.md) 填 8 字段语义内容。
-2. 读 [test-strategy.md](test-strategy.md) §2 判级 + §4 矩阵定 P0–P3；**分级依据**写入 CSV **描述**列。
+2. **判级只读** [test-strategy.md](test-strategy.md)：**§1 正式约束**（定义/判定要点/失败后果/执行要求）+ §2 流程 + §4 矩阵定 P0–P3；**分级依据**写入 CSV **描述**列。  
+   - [Router_Pon_测试范围模版.md](Router_Pon_测试范围模版.md) / `.numbers` 仅为策略同步源；**不要**跨仓库查找外部策略文件。
 3. 缺关联项目/型号/版本 → `TBD_FEISHU_PROJECT` / `TBD` 或追问。
 4. 批量 ≥3 条：先**分级统计** + **测试点矩阵**，再交付 **CSV 导入表**。
 5. 用户要求保存 → `testcases/<型号小写>/<模块>/feishu-import-<批次>.csv`（UTF-8 BOM）。

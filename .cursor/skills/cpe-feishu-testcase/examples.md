@@ -150,7 +150,7 @@ LLA,ACS
 ## 测试点矩阵
 | 序号 | 标题摘要 | 分级 | 分级依据 | 标签 | 用例类型 |
 |------|----------|------|----------|------|----------|
-| 1 | 2.4G 基本功能/关联 | P0 | P0 \| 策略:WEB-WIFI-基本功能 \| SR7D4VA§4.2 | LLA,WIFI | 功能测试 |
+| 1 | 2.4G 基本功能/关联 | P0 | P0 \| 策略:WEB-WIFI-基本功能 \| §4.2 | LLA,WIFI | 功能测试 |
 
 ## 飞书导入 CSV
 （20 列表头，见 feishu-import-template.xlsx；已移除废弃列「执行步骤」「[废弃]预期结果」）
@@ -158,7 +158,7 @@ LLA,ACS
 
 ```csv
 用例名称,所属目录,标签,描述,优先级,用例类型,测试用例类型,工作项id,前置条件,关联需求（系统字段）,用例分级,步骤,预期结果,自增数字,子分类,关联用例集,流程版本,WBS状态,关联项目,关联需求
-【SR7D4VA】【LLA】【WIFI】2.4G 频段默认 SSID 与密码关联成功；,CPE,"LLA,WIFI","P0 | 策略:WEB-WIFI-基本功能 | SR7D4VA§4.2",,功能测试,,,"- DUT：SR7D4VA，软件版本 TBD（测试环境）\n- 初始状态：恢复出厂",,P0,"1. 登录 Web WiFi 页\n2. 查看 2.4G SSID","1. 页面正常打开\n2. SSID 与默认配置一致",,,,,,TBD_FEISHU_PROJECT,
+【SR7D4VA】【LLA】【WIFI】2.4G 频段默认 SSID 与密码关联成功；,CPE,"LLA,WIFI","P0 | 策略:WEB-WIFI-基本功能 | §4.2",,功能测试,,,"- DUT：SR7D4VA，软件版本 TBD（测试环境）\n- 初始状态：恢复出厂",,P0,"1. 登录 Web WiFi 页\n2. 查看 2.4G SSID","1. 页面正常打开\n2. SSID 与默认配置一致",,,,,,TBD_FEISHU_PROJECT,
 ```
 
 ### 自定义 10 条时
@@ -178,7 +178,7 @@ LLA,ACS
 ```text
 @cpe-feishu-testcase 生成 10 条 WIFI 功能用例：
 - 型号 EVO6022GP3，产品类型：光猫（运营商）
-- 按 test-strategy.md（SR7D4VA 测试策略）自动判级
+- 按本目录 test-strategy.md（源：Router_Pon 测试范围模版）自动判级
 - 输出分级统计 + 矩阵（含分级依据）+ 完整 8 字段
 ```
 
@@ -198,7 +198,7 @@ LLA,ACS
 ### 4. 用例分级
 P0
 
-> 分级依据：P0 | 策略:TR069-ACS-WAN | SR7D4VA§4.4 | ACS WAN PPPoE↔IPoE
+> 分级依据：P0 | 策略:TR069-网络配置 | §4.4 | ACS WAN PPPoE↔IPoE
 ```
 
 ## 示例 7：飞书导入 CSV（批量）
